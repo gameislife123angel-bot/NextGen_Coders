@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NextGen Coders - Enrollment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 5px;
+    }
+
+    .tagline {
+      color: #38bdf8;
+      font-size: 18px;
+    }
+
+    .container {
+      background: white;
+      color: black;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #020617;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 NEXTGEN CODERS</h1>
+  <div class="tagline">Coding the Next Generation</div>
+  <p>1 Month Foundation Course - ₹99</p>
+  <button onclick="showForm()">Enroll Now</button>
+</header>
+
+<div id="formContainer" class="container hidden">
+  <h2>Enrollment Form</h2>
+
+  <form id="enrollForm">
+
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+
+    <select id="education" required onchange="checkEducation()">
+      <option value="">Select Education</option>
+      <option value="Student">Student</option>
+      <option value="Engineer">Engineer</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <div id="gradeField" class="hidden">
+      <input type="text" id="grade" placeholder="Enter Grade / Class">
+    </div>
+
+    <button type="button" onclick="confirmSubmission()">Submit</button>
+    <button type="button" onclick="goBack()">Back</button>
+
+  </form>
+</div>
+
+<footer>
+  Coding the Next Generation <br>
+  Programmed by Haiyansh Shah
+</footer>
+
+<script>
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycby1h2MiiSLsKZbEiXPjLD8lFDJkqjYGoyfTTKys-m_zR3NZv0db52dreBK4bqbmWw3XFA/exec";
+
+  function showForm() {
+    if(localStorage.getItem("submitted")) {
+      alert("You have already submitted from this device.");
+      return;
+    }
+    document.getElementById("formContainer").classList.remove("hidden");
+  }
+
+  function goBack() {
+    document.getElementById("formContainer").classList.add("hidden");
+  }
+
+  function checkEducation() {
+    let edu = document.getElementById("education").value;
+    if(edu === "Student") {
+      document.getElementById("gradeField").classList.remove("hidden");
+    } else {
+      document.getElementById("gradeField").classList.add("hidden");
+    }
+  }
+
+  function confirmSubmission() {
+
+    if(localStorage.getItem("submitted")) {
+      alert("Only one submission allowed per device.");
+      return;
+    }
+
+    let confirmPay = confirm("Are you sure you want to enroll? ₹99 fee will be charged.");
+
+    if(confirmPay) {
+      submitForm();
+    }
+  }
+
+  function submitForm() {
+
+    let data = {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("email").value,
+      education: document.getElementById("education").value,
+      grade: document.getElementById("grade").value || "-"
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      alert("Enrollment Successful!");
+      localStorage.setItem("submitted", "true");
+      document.getElementById("enrollForm").reset();
+      goBack();
+    })
+    .catch(error => alert("Error submitting form."));
+  }
+
+</script>
+
+</body>
+</html>
