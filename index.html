@@ -199,7 +199,22 @@ Programmed by Haiyansh Shah
 
 const scriptURL = "https://script.google.com/macros/s/AKfycbzrKIw4KB0gh69TBxsZSuhHkg_U7xB-UZUyHFLvg0cOJn9XMT0BOSl6tAts6a2yDTwu6g/exec";
 
+window.onload = function(){
+  if(localStorage.getItem("ngc_submitted") === "true"){
+    const btn = document.querySelector(".enroll-btn");
+    btn.innerText = "Already Enrolled";
+    btn.disabled = true;
+    btn.style.background = "gray";
+  }
+};
+
 function showForm(){
+
+  if(localStorage.getItem("ngc_submitted") === "true"){
+    alert("You have already submitted the form from this device.");
+    return;
+  }
+
   document.getElementById("formContainer").style.display="block";
   window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
@@ -215,6 +230,11 @@ function checkEducation(){
 }
 
 function confirmSubmission(){
+
+  if(localStorage.getItem("ngc_submitted") === "true"){
+    alert("Only one submission allowed per device.");
+    return;
+  }
 
   const nameVal=document.getElementById("name").value.trim();
   const phoneVal=document.getElementById("phone").value.trim();
@@ -246,6 +266,13 @@ function confirmSubmission(){
   .then(response=>response.text())
   .then(()=>{
     alert("Enrollment Successful!");
+    localStorage.setItem("ngc_submitted","true");
+
+    const btn = document.querySelector(".enroll-btn");
+    btn.innerText = "Already Enrolled";
+    btn.disabled = true;
+    btn.style.background = "gray";
+
     goBack();
   })
   .catch(()=>{
