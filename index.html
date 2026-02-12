@@ -86,7 +86,6 @@
       .content { padding: 30px 20px; }
       .form-container { margin: 30px 20px; }
     }
-
   </style>
 </head>
 
@@ -99,72 +98,25 @@
 
 <p>💻 Start Your Programming Journey with Confidence!</p>
 
-<p>NextGen Coders is designed for beginners who want to build a strong foundation in web development and programming.</p>
-
 <hr>
 
 <h2>📘 1 Month Foundation Course</h2>
 <h3>💰 Enrollment Fee: Only ₹99</h3>
 
-<p>Learn the <b>Basics of HTML & JavaScript</b> and gain the skills to:</p>
-
 <p>
 ✔ Create Simple Website UI<br>
 ✔ Design Clean GUI Layouts<br>
-✔ Understand Backend Logic Basics<br>
-✔ Build Interactive Web Pages<br>
-✔ Write Structured & Clean Code
+✔ Backend Logic Basics<br>
+✔ Interactive Web Pages<br>
+✔ Clean Structured Code
 </p>
 
 <hr>
 
-<h2>📚 What We Provide</h2>
-
-<p>
-🔹 Basic Programming Knowledge<br>
-🔹 Strong Theoretical Foundation<br>
-🔹 Step-by-Step Guided Learning<br>
-🔹 Practical Hands-on Sessions<br>
-🔹 Weekly Tests & Assessments<br>
-🔹 Final Examination<br>
-🔹 Performance-Based Evaluation
-</p>
+<h2>🎓 Scholarship</h2>
+<p><b>Up to 90% Scholarship</b> for EliteStudio Main Courses</p>
 
 <hr>
-
-<h2>🎓 Scholarship Opportunity</h2>
-
-<p>Top performing students can receive</p>
-<p><b>🏆 Up to 90% Scholarship</b></p>
-<p>for <b>EliteStudio Main Courses</b></p>
-
-<hr>
-
-<h2>📢 Enrollment Information</h2>
-
-<p>📩 We will officially inform you when registrations open.</p>
-
-<p>
-Limited seats available.<br>
-Click button at end to enroll, (if you are sure fees will be charged when we start our joureny)
-</p>
-
-<hr>
-
-<h2>👨‍💻 Who Can Join?</h2>
-
-<p>
-• School & College Students<br>
-• Beginners<br>
-• Future Developers<br>
-• Anyone Interested in Coding
-</p>
-
-<hr>
-
-<h3>🌟 Build Your Foundation. Build Your Future.</h3>
-
-<p>Join <b>NextGen Coders</b> and take your first step into the world of programming.</p>
 
 <button class="enroll-btn" onclick="showForm()">Enroll Now</button>
 
@@ -229,19 +181,20 @@ function confirmSubmission() {
     return;
   }
 
-  let nameVal = name.value.trim();
-  let phoneVal = phone.value.trim();
-  let emailVal = email.value.trim();
-  let educationVal = education.value;
-  let gradeVal = grade.value.trim();
+  const nameVal = document.getElementById("name").value.trim();
+  const phoneVal = document.getElementById("phone").value.trim();
+  const emailVal = document.getElementById("email").value.trim();
+  const educationVal = document.getElementById("education").value;
+  const gradeInput = document.getElementById("grade");
+  const gradeVal = gradeInput ? gradeInput.value.trim() : "";
 
   if(!nameVal || !phoneVal || !emailVal || !educationVal) {
-    alert("Please fill all required fields.");
+    alert("❌ Please fill all required fields.");
     return;
   }
 
   if(educationVal === "Student" && !gradeVal) {
-    alert("Please enter your Grade / Class.");
+    alert("❌ Please enter your Grade / Class.");
     return;
   }
 
@@ -249,7 +202,7 @@ function confirmSubmission() {
     return;
   }
 
-  let data = {
+  const data = {
     name: nameVal,
     phone: phoneVal,
     email: emailVal,
@@ -259,15 +212,23 @@ function confirmSubmission() {
 
   fetch(scriptURL, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   })
-  .then(res => res.json())
+  .then(res => res.text())
   .then(() => {
-    alert("Enrollment Successful!");
+
+    // Success sound
+    const audio = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+    audio.play();
+
+    alert("✅ Enrollment Successful!");
     localStorage.setItem("submitted", "true");
     goBack();
   })
-  .catch(() => alert("Submission Error"));
+  .catch(() => {
+    alert("❌ Submission Error. Please try again.");
+  });
 }
 
 </script>
