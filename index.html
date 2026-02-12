@@ -9,31 +9,56 @@
       margin: 0;
       background: #0f172a;
       color: white;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      margin-top: 30px;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 0;
+      border-top: 1px solid #334155;
+    }
+
+    .highlight {
+      color: #38bdf8;
+    }
+
+    .enroll-btn {
+      display: block;
+      width: 250px;
+      margin: 30px auto;
+      padding: 15px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
       text-align: center;
     }
 
-    header {
-      padding: 40px 20px;
+    .enroll-btn:hover {
+      background: #1d4ed8;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 5px;
-    }
-
-    .tagline {
-      color: #38bdf8;
-      font-size: 18px;
-    }
-
-    .container {
+    .form-container {
       background: white;
       color: black;
       max-width: 500px;
-      margin: 30px auto;
+      margin: 40px auto;
       padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      display: none;
     }
 
     input, select {
@@ -60,53 +85,118 @@
       background: #1d4ed8;
     }
 
-    .hidden {
-      display: none;
-    }
-
     footer {
-      margin-top: 40px;
-      padding: 20px;
+      text-align: center;
+      padding: 25px;
       background: #020617;
-      font-size: 14px;
       color: #94a3b8;
+      margin-top: 50px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🚀 NEXTGEN CODERS</h1>
-  <div class="tagline">Coding the Next Generation</div>
-  <p>1 Month Foundation Course - ₹99</p>
-  <button onclick="showForm()">Enroll Now</button>
-</header>
+<div class="content">
 
-<div id="formContainer" class="container hidden">
+<h1>🚀 NEXTGEN CODERS</h1>
+
+<h3><i>Coding the Next Generation</i></h3>
+
+<p>💻 Start Your Programming Journey with Confidence!</p>
+
+<p>NextGen Coders is designed for beginners who want to build a strong foundation in web development and programming.</p>
+
+<hr>
+
+<h2>📘 1 Month Foundation Course</h2>
+
+<h3>💰 Enrollment Fee: Only ₹99</h3>
+
+<p>Learn the <b>Basics of HTML & JavaScript</b> and gain the skills to:</p>
+
+<p>
+✔ Create Simple Website UI<br>
+✔ Design Clean GUI Layouts<br>
+✔ Understand Backend Logic Basics<br>
+✔ Build Interactive Web Pages<br>
+✔ Write Structured & Clean Code
+</p>
+
+<hr>
+
+<h2>📚 What We Provide</h2>
+
+<p>
+🔹 Basic Programming Knowledge<br>
+🔹 Strong Theoretical Foundation<br>
+🔹 Step-by-Step Guided Learning<br>
+🔹 Practical Hands-on Sessions<br>
+🔹 Weekly Tests & Assessments<br>
+🔹 Final Examination<br>
+🔹 Performance-Based Evaluation
+</p>
+
+<hr>
+
+<h2>🎓 Scholarship Opportunity</h2>
+
+<p>Top performing students can receive</p>
+<p><b>🏆 Up to 90% Scholarship</b></p>
+<p>for <b>EliteStudio Main Courses</b></p>
+
+<hr>
+
+<h2>📢 Enrollment Information</h2>
+
+<p>📩 We will officially inform you when registrations open.</p>
+
+<p>
+Limited seats available.<br>
+Click button at end to enroll, (if you are sure fees will be charged when we start our joureny)
+</p>
+
+<hr>
+
+<h2>👨‍💻 Who Can Join?</h2>
+
+<p>
+• School & College Students<br>
+• Beginners<br>
+• Future Developers<br>
+• Anyone Interested in Coding
+</p>
+
+<hr>
+
+<h3>🌟 Build Your Foundation. Build Your Future.</h3>
+
+<p>Join <b>NextGen Coders</b> and take your first step into the world of programming.</p>
+
+<button class="enroll-btn" onclick="showForm()">Enroll Now</button>
+
+</div>
+
+<div class="form-container" id="formContainer">
   <h2>Enrollment Form</h2>
 
-  <form id="enrollForm">
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <input type="email" id="email" placeholder="Email Address" required>
 
-    <input type="text" id="name" placeholder="Full Name" required>
-    <input type="tel" id="phone" placeholder="Phone Number" required>
-    <input type="email" id="email" placeholder="Email Address" required>
+  <select id="education" onchange="checkEducation()" required>
+    <option value="">Select Education</option>
+    <option value="Student">Student</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Other">Other</option>
+  </select>
 
-    <select id="education" required onchange="checkEducation()">
-      <option value="">Select Education</option>
-      <option value="Student">Student</option>
-      <option value="Engineer">Engineer</option>
-      <option value="Other">Other</option>
-    </select>
+  <div id="gradeField" style="display:none;">
+    <input type="text" id="grade" placeholder="Enter Grade / Class">
+  </div>
 
-    <div id="gradeField" class="hidden">
-      <input type="text" id="grade" placeholder="Enter Grade / Class">
-    </div>
-
-    <button type="button" onclick="confirmSubmission()">Submit</button>
-    <button type="button" onclick="goBack()">Back</button>
-
-  </form>
+  <button onclick="confirmSubmission()">Submit</button>
+  <button onclick="goBack()">Back</button>
 </div>
 
 <footer>
@@ -116,66 +206,66 @@
 
 <script>
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycby1h2MiiSLsKZbEiXPjLD8lFDJkqjYGoyfTTKys-m_zR3NZv0db52dreBK4bqbmWw3XFA/exec";
+const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
 
-  function showForm() {
-    if(localStorage.getItem("submitted")) {
-      alert("You have already submitted from this device.");
-      return;
-    }
-    document.getElementById("formContainer").classList.remove("hidden");
+function showForm() {
+  if(localStorage.getItem("submitted")) {
+    alert("You have already submitted from this device.");
+    return;
+  }
+  document.getElementById("formContainer").style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function goBack() {
+  document.getElementById("formContainer").style.display = "none";
+}
+
+function checkEducation() {
+  let edu = document.getElementById("education").value;
+  if(edu === "Student") {
+    document.getElementById("gradeField").style.display = "block";
+  } else {
+    document.getElementById("gradeField").style.display = "none";
+  }
+}
+
+function confirmSubmission() {
+
+  if(localStorage.getItem("submitted")) {
+    alert("Only one submission allowed per device.");
+    return;
   }
 
-  function goBack() {
-    document.getElementById("formContainer").classList.add("hidden");
+  let confirmPay = confirm("Are you sure you want to enroll? ₹99 fee will be charged.");
+
+  if(confirmPay) {
+    submitForm();
   }
+}
 
-  function checkEducation() {
-    let edu = document.getElementById("education").value;
-    if(edu === "Student") {
-      document.getElementById("gradeField").classList.remove("hidden");
-    } else {
-      document.getElementById("gradeField").classList.add("hidden");
-    }
-  }
+function submitForm() {
 
-  function confirmSubmission() {
+  let data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    education: document.getElementById("education").value,
+    grade: document.getElementById("grade").value || "-"
+  };
 
-    if(localStorage.getItem("submitted")) {
-      alert("Only one submission allowed per device.");
-      return;
-    }
-
-    let confirmPay = confirm("Are you sure you want to enroll? ₹99 fee will be charged.");
-
-    if(confirmPay) {
-      submitForm();
-    }
-  }
-
-  function submitForm() {
-
-    let data = {
-      name: document.getElementById("name").value,
-      phone: document.getElementById("phone").value,
-      email: document.getElementById("email").value,
-      education: document.getElementById("education").value,
-      grade: document.getElementById("grade").value || "-"
-    };
-
-    fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-      alert("Enrollment Successful!");
-      localStorage.setItem("submitted", "true");
-      document.getElementById("enrollForm").reset();
-      goBack();
-    })
-    .catch(error => alert("Error submitting form."));
-  }
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(result => {
+    alert("Enrollment Successful!");
+    localStorage.setItem("submitted", "true");
+    goBack();
+  })
+  .catch(error => alert("Error submitting form."));
+}
 
 </script>
 
