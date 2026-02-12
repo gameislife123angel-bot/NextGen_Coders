@@ -3,48 +3,54 @@
 <head>
   <title>NextGen Coders - Enrollment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background: #0f172a;
       color: white;
+      line-height: 1.8;
     }
 
     .content {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      line-height: 1.7;
+      padding: 50px 10%;
     }
 
-    h1, h2, h3 {
-      margin-top: 30px;
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    hr {
-      margin: 30px 0;
-      border: 0;
-      border-top: 1px solid #334155;
-    }
-
-    .highlight {
+    h2 {
+      margin-top: 40px;
       color: #38bdf8;
     }
 
-    .enroll-btn {
-      display: block;
-      width: 250px;
-      margin: 30px auto;
-      padding: 15px;
-      background: #2563eb;
-      color: white;
+    h3 {
+      margin-top: 25px;
+    }
+
+    hr {
+      margin: 40px 0;
       border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      border-top: 1px solid #334155;
+    }
+
+    p {
+      margin: 15px 0;
+      font-size: 17px;
+    }
+
+    .enroll-btn {
+      margin-top: 40px;
+      padding: 15px 25px;
       font-size: 16px;
-      font-weight: bold;
-      text-align: center;
+      background: #2563eb;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
     }
 
     .enroll-btn:hover {
@@ -52,33 +58,32 @@
     }
 
     .form-container {
+      display: none;
       background: white;
       color: black;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 25px;
+      padding: 30px;
+      margin: 50px 10%;
       border-radius: 12px;
-      display: none;
     }
 
     input, select {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
+      padding: 12px;
+      margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
 
     button {
-      background: #2563eb;
-      color: white;
       padding: 12px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
       margin-top: 10px;
       width: 100%;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
       font-weight: bold;
+      cursor: pointer;
     }
 
     button:hover {
@@ -87,11 +92,21 @@
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px;
       background: #020617;
       color: #94a3b8;
-      margin-top: 50px;
+      margin-top: 60px;
     }
+
+    @media(max-width:768px){
+      .content {
+        padding: 30px 20px;
+      }
+      .form-container {
+        margin: 30px 20px;
+      }
+    }
+
   </style>
 </head>
 
@@ -100,7 +115,6 @@
 <div class="content">
 
 <h1>🚀 NEXTGEN CODERS</h1>
-
 <h3><i>Coding the Next Generation</i></h3>
 
 <p>💻 Start Your Programming Journey with Confidence!</p>
@@ -178,30 +192,32 @@ Click button at end to enroll, (if you are sure fees will be charged when we sta
 </div>
 
 <div class="form-container" id="formContainer">
-  <h2>Enrollment Form</h2>
 
-  <input type="text" id="name" placeholder="Full Name" required>
-  <input type="tel" id="phone" placeholder="Phone Number" required>
-  <input type="email" id="email" placeholder="Email Address" required>
+<h2>Enrollment Form</h2>
 
-  <select id="education" onchange="checkEducation()" required>
-    <option value="">Select Education</option>
-    <option value="Student">Student</option>
-    <option value="Engineer">Engineer</option>
-    <option value="Other">Other</option>
-  </select>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="email" id="email" placeholder="Email Address" required>
 
-  <div id="gradeField" style="display:none;">
-    <input type="text" id="grade" placeholder="Enter Grade / Class">
-  </div>
+<select id="education" onchange="checkEducation()" required>
+<option value="">Select Education</option>
+<option value="Student">Student</option>
+<option value="Engineer">Engineer</option>
+<option value="Other">Other</option>
+</select>
 
-  <button onclick="confirmSubmission()">Submit</button>
-  <button onclick="goBack()">Back</button>
+<div id="gradeField" style="display:none;">
+<input type="text" id="grade" placeholder="Enter Grade / Class">
+</div>
+
+<button onclick="confirmSubmission()">Submit</button>
+<button onclick="goBack()">Back</button>
+
 </div>
 
 <footer>
-  Coding the Next Generation <br>
-  Programmed by Haiyansh Shah
+Coding the Next Generation <br>
+Programmed by Haiyansh Shah
 </footer>
 
 <script>
@@ -223,11 +239,8 @@ function goBack() {
 
 function checkEducation() {
   let edu = document.getElementById("education").value;
-  if(edu === "Student") {
-    document.getElementById("gradeField").style.display = "block";
-  } else {
-    document.getElementById("gradeField").style.display = "none";
-  }
+  document.getElementById("gradeField").style.display =
+    edu === "Student" ? "block" : "none";
 }
 
 function confirmSubmission() {
@@ -237,9 +250,7 @@ function confirmSubmission() {
     return;
   }
 
-  let confirmPay = confirm("Are you sure you want to enroll? ₹99 fee will be charged.");
-
-  if(confirmPay) {
+  if(confirm("Are you sure you want to enroll? ₹99 fee will be charged.")) {
     submitForm();
   }
 }
@@ -247,24 +258,24 @@ function confirmSubmission() {
 function submitForm() {
 
   let data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    email: document.getElementById("email").value,
-    education: document.getElementById("education").value,
-    grade: document.getElementById("grade").value || "-"
+    name: name.value,
+    phone: phone.value,
+    email: email.value,
+    education: education.value,
+    grade: grade.value || "-"
   };
 
   fetch(scriptURL, {
     method: "POST",
     body: JSON.stringify(data)
   })
-  .then(response => response.json())
-  .then(result => {
+  .then(res => res.json())
+  .then(() => {
     alert("Enrollment Successful!");
     localStorage.setItem("submitted", "true");
     goBack();
   })
-  .catch(error => alert("Error submitting form."));
+  .catch(() => alert("Submission Error"));
 }
 
 </script>
