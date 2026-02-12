@@ -185,7 +185,7 @@ footer{
 <input type="text" id="grade" placeholder="Enter Grade / Class">
 </div>
 
-<button onclick="confirmSubmission()">Submit Enrollment</button>
+<button id="submitBtn" onclick="confirmSubmission()">Submit Enrollment</button>
 <button class="secondary-btn" onclick="goBack()">Back</button>
 
 </div>
@@ -209,12 +209,10 @@ window.onload = function(){
 };
 
 function showForm(){
-
   if(localStorage.getItem("ngc_submitted") === "true"){
     alert("You have already submitted the form from this device.");
     return;
   }
-
   document.getElementById("formContainer").style.display="block";
   window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
@@ -236,6 +234,10 @@ function confirmSubmission(){
     return;
   }
 
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Enrolling...";
+
   const nameVal=document.getElementById("name").value.trim();
   const phoneVal=document.getElementById("phone").value.trim();
   const emailVal=document.getElementById("email").value.trim();
@@ -244,11 +246,15 @@ function confirmSubmission(){
 
   if(!nameVal || !phoneVal || !emailVal || !educationVal){
     alert("Please fill all required fields.");
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Enrollment";
     return;
   }
 
   if(educationVal==="Student" && !gradeVal){
     alert("Please enter your Grade / Class.");
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Enrollment";
     return;
   }
 
@@ -265,7 +271,9 @@ function confirmSubmission(){
   })
   .then(response=>response.text())
   .then(()=>{
-    alert("Enrollment Successful!");
+    submitBtn.innerText = "Successfully Enrolled ✓";
+    submitBtn.style.background = "green";
+
     localStorage.setItem("ngc_submitted","true");
 
     const btn = document.querySelector(".enroll-btn");
@@ -273,10 +281,14 @@ function confirmSubmission(){
     btn.disabled = true;
     btn.style.background = "gray";
 
-    goBack();
+    setTimeout(()=>{
+      goBack();
+    },1500);
   })
   .catch(()=>{
     alert("Submission Error. Try again.");
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Enrollment";
   });
 }
 
