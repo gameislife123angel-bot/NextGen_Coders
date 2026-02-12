@@ -17,19 +17,9 @@
       padding: 50px 10%;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      color: #38bdf8;
-    }
-
-    h3 {
-      margin-top: 25px;
-    }
+    h1 { font-size: 40px; margin-bottom: 10px; }
+    h2 { margin-top: 40px; color: #38bdf8; }
+    h3 { margin-top: 25px; }
 
     hr {
       margin: 40px 0;
@@ -37,10 +27,7 @@
       border-top: 1px solid #334155;
     }
 
-    p {
-      margin: 15px 0;
-      font-size: 17px;
-    }
+    p { margin: 15px 0; font-size: 17px; }
 
     .enroll-btn {
       margin-top: 40px;
@@ -53,9 +40,7 @@
       cursor: pointer;
     }
 
-    .enroll-btn:hover {
-      background: #1d4ed8;
-    }
+    .enroll-btn:hover { background: #1d4ed8; }
 
     .form-container {
       display: none;
@@ -72,6 +57,7 @@
       margin: 10px 0;
       border-radius: 6px;
       border: 1px solid #ccc;
+      font-size: 15px;
     }
 
     button {
@@ -86,9 +72,7 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1d4ed8;
-    }
+    button:hover { background: #1d4ed8; }
 
     footer {
       text-align: center;
@@ -99,12 +83,8 @@
     }
 
     @media(max-width:768px){
-      .content {
-        padding: 30px 20px;
-      }
-      .form-container {
-        margin: 30px 20px;
-      }
+      .content { padding: 30px 20px; }
+      .form-container { margin: 30px 20px; }
     }
 
   </style>
@@ -124,7 +104,6 @@
 <hr>
 
 <h2>📘 1 Month Foundation Course</h2>
-
 <h3>💰 Enrollment Fee: Only ₹99</h3>
 
 <p>Learn the <b>Basics of HTML & JavaScript</b> and gain the skills to:</p>
@@ -195,11 +174,11 @@ Click button at end to enroll, (if you are sure fees will be charged when we sta
 
 <h2>Enrollment Form</h2>
 
-<input type="text" id="name" placeholder="Full Name" required>
-<input type="tel" id="phone" placeholder="Phone Number" required>
-<input type="email" id="email" placeholder="Email Address" required>
+<input type="text" id="name" placeholder="Full Name">
+<input type="tel" id="phone" placeholder="Phone Number">
+<input type="email" id="email" placeholder="Email Address">
 
-<select id="education" onchange="checkEducation()" required>
+<select id="education" onchange="checkEducation()">
 <option value="">Select Education</option>
 <option value="Student">Student</option>
 <option value="Engineer">Engineer</option>
@@ -250,19 +229,32 @@ function confirmSubmission() {
     return;
   }
 
-  if(confirm("Are you sure you want to enroll? ₹99 fee will be charged.")) {
-    submitForm();
-  }
-}
+  let nameVal = name.value.trim();
+  let phoneVal = phone.value.trim();
+  let emailVal = email.value.trim();
+  let educationVal = education.value;
+  let gradeVal = grade.value.trim();
 
-function submitForm() {
+  if(!nameVal || !phoneVal || !emailVal || !educationVal) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  if(educationVal === "Student" && !gradeVal) {
+    alert("Please enter your Grade / Class.");
+    return;
+  }
+
+  if(!confirm("Are you sure you want to enroll? ₹99 fee will be charged.")) {
+    return;
+  }
 
   let data = {
-    name: name.value,
-    phone: phone.value,
-    email: email.value,
-    education: education.value,
-    grade: grade.value || "-"
+    name: nameVal,
+    phone: phoneVal,
+    email: emailVal,
+    education: educationVal,
+    grade: educationVal === "Student" ? gradeVal : "-"
   };
 
   fetch(scriptURL, {
