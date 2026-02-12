@@ -6,15 +6,10 @@
 <title>NextGen Coders - Enrollment</title>
 
 <style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family:'Segoe UI',Arial,sans-serif;
   background:#0f172a;
   color:white;
   line-height:1.7;
@@ -26,44 +21,13 @@ body{
   padding:60px 25px;
 }
 
-h1{
-  font-size:42px;
-  margin-bottom:10px;
-}
-
-h2{
-  margin-top:40px;
-  color:#38bdf8;
-  font-size:26px;
-}
-
-h3{
-  margin-top:10px;
-  font-weight:normal;
-  color:#cbd5e1;
-}
-
-p{
-  margin:15px 0;
-  font-size:18px;
-  color:#e2e8f0;
-}
-
-hr{
-  margin:35px 0;
-  border:none;
-  border-top:1px solid #334155;
-}
-
-ul{
-  margin-top:15px;
-  padding-left:20px;
-}
-
-li{
-  margin:8px 0;
-  font-size:17px;
-}
+h1{font-size:42px;margin-bottom:10px;}
+h2{margin-top:40px;color:#38bdf8;font-size:26px;}
+h3{margin-top:10px;color:#cbd5e1;font-weight:normal;}
+p{margin:15px 0;font-size:18px;color:#e2e8f0;}
+ul{margin-top:15px;padding-left:20px;}
+li{margin:8px 0;font-size:17px;}
+hr{margin:40px 0;border:none;border-top:1px solid #334155;}
 
 .enroll-btn{
   margin-top:40px;
@@ -76,11 +40,7 @@ li{
   cursor:pointer;
   transition:0.3s;
 }
-
-.enroll-btn:hover{
-  background:#1d4ed8;
-  transform:translateY(-2px);
-}
+.enroll-btn:hover{background:#1d4ed8;}
 
 .form-container{
   display:none;
@@ -91,15 +51,9 @@ li{
   padding:35px;
   border-radius:14px;
   box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  animation:fadeIn 0.4s ease-in-out;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-input, select{
+input,select{
   width:100%;
   padding:13px;
   margin:12px 0;
@@ -118,20 +72,11 @@ button{
   color:white;
   font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
 }
+button:hover{background:#1d4ed8;}
 
-button:hover{
-  background:#1d4ed8;
-}
-
-.secondary-btn{
-  background:#64748b;
-}
-
-.secondary-btn:hover{
-  background:#475569;
-}
+.secondary-btn{background:#64748b;}
+.secondary-btn:hover{background:#475569;}
 
 footer{
   text-align:center;
@@ -147,7 +92,6 @@ footer{
   h2{font-size:22px;}
   p{font-size:16px;}
 }
-
 </style>
 </head>
 
@@ -160,25 +104,63 @@ footer{
 
 <p>💻 Start Your Programming Journey with Confidence!</p>
 
+<p>NextGen Coders is designed for beginners who want to build a strong foundation in web development and programming.</p>
+
 <hr>
 
 <h2>📘 1 Month Foundation Course</h2>
 <p><strong>💰 Enrollment Fee: Only ₹99</strong></p>
 
+<p>Learn the <strong>Basics of HTML & JavaScript</strong> and gain the skills to:</p>
+
 <ul>
 <li>Create Simple Website UI</li>
 <li>Design Clean GUI Layouts</li>
-<li>Backend Logic Basics</li>
-<li>Interactive Web Pages</li>
-<li>Clean Structured Code</li>
+<li>Understand Backend Logic Basics</li>
+<li>Build Interactive Web Pages</li>
+<li>Write Structured & Clean Code</li>
 </ul>
 
 <hr>
 
-<h2>🎓 Scholarship</h2>
-<p><strong>Up to 90% Scholarship</strong> for EliteStudio Main Courses.</p>
+<h2>📚 What We Provide</h2>
+<ul>
+<li>Basic Programming Knowledge</li>
+<li>Strong Theoretical Foundation</li>
+<li>Step-by-Step Guided Learning</li>
+<li>Practical Hands-on Sessions</li>
+<li>Weekly Tests & Assessments</li>
+<li>Final Examination</li>
+<li>Performance-Based Evaluation</li>
+</ul>
 
 <hr>
+
+<h2>🎓 Scholarship Opportunity</h2>
+<p>Top performing students can receive</p>
+<p><strong>🏆 Up to 90% Scholarship</strong> for EliteStudio Main Courses</p>
+
+<hr>
+
+<h2>📢 Enrollment Information</h2>
+<p>📩 We will officially inform you when registrations open.</p>
+<p>Limited seats available.</p>
+<p>Click button below to enroll (fees will be charged when we start our journey).</p>
+
+<hr>
+
+<h2>👨‍💻 Who Can Join?</h2>
+<ul>
+<li>School & College Students</li>
+<li>Beginners</li>
+<li>Future Developers</li>
+<li>Anyone Interested in Coding</li>
+</ul>
+
+<hr>
+
+<h3>🌟 Build Your Foundation. Build Your Future.</h3>
+<p>Join <strong>NextGen Coders</strong> and take your first step into the world of programming.</p>
 
 <button class="enroll-btn" onclick="showForm()">Enroll Now</button>
 
@@ -188,11 +170,11 @@ footer{
 
 <h2 style="color:#2563eb;">Enrollment Form</h2>
 
-<input type="text" id="name" placeholder="Full Name" required>
-<input type="tel" id="phone" placeholder="Phone Number" required>
-<input type="email" id="email" placeholder="Email Address" required>
+<input type="text" id="name" placeholder="Full Name">
+<input type="tel" id="phone" placeholder="Phone Number">
+<input type="email" id="email" placeholder="Email Address">
 
-<select id="education" onchange="checkEducation()" required>
+<select id="education" onchange="checkEducation()">
 <option value="">Select Education</option>
 <option value="Student">Student</option>
 <option value="Engineer">Engineer</option>
@@ -215,13 +197,9 @@ Programmed by Haiyansh Shah
 
 <script>
 
-const scriptURL = "https://script.google.com/macros/s/AKfycby1h2MiiSLsKZbEiXPjLD8lFDJkqjYGoyfTTKys-m_zR3NZv0db52dreBK4bqbmWw3XFA/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwnVtUQ0wkwL9oGvooSM_8_3lauUmdkr82EzXhyAaLi1CIfeuKXENF2OX1jMMzDS3keDA/exec";
 
 function showForm(){
-  if(localStorage.getItem("submitted")){
-    alert("You have already submitted from this device.");
-    return;
-  }
   document.getElementById("formContainer").style.display="block";
   window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
@@ -238,11 +216,6 @@ function checkEducation(){
 
 function confirmSubmission(){
 
-  if(localStorage.getItem("submitted")){
-    alert("Only one submission allowed per device.");
-    return;
-  }
-
   const nameVal=document.getElementById("name").value.trim();
   const phoneVal=document.getElementById("phone").value.trim();
   const emailVal=document.getElementById("email").value.trim();
@@ -250,40 +223,33 @@ function confirmSubmission(){
   const gradeVal=document.getElementById("grade").value.trim();
 
   if(!nameVal || !phoneVal || !emailVal || !educationVal){
-    alert("❌ Please fill all required fields.");
+    alert("Please fill all required fields.");
     return;
   }
 
   if(educationVal==="Student" && !gradeVal){
-    alert("❌ Please enter your Grade / Class.");
+    alert("Please enter your Grade / Class.");
     return;
   }
 
-  if(!confirm("Are you sure you want to enroll? ₹99 fee will be charged.")){
-    return;
-  }
-
-  const data={
-    name:nameVal,
-    phone:phoneVal,
-    email:emailVal,
-    education:educationVal,
-    grade:educationVal==="Student"?gradeVal:"-"
-  };
+  const data=new URLSearchParams();
+  data.append("name",nameVal);
+  data.append("phone",phoneVal);
+  data.append("email",emailVal);
+  data.append("education",educationVal);
+  data.append("grade",educationVal==="Student"?gradeVal:"-");
 
   fetch(scriptURL,{
     method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(data)
+    body:data
   })
-  .then(res=>res.text())
+  .then(response=>response.text())
   .then(()=>{
-    alert("✅ Enrollment Successful!");
-    localStorage.setItem("submitted","true");
+    alert("Enrollment Successful!");
     goBack();
   })
   .catch(()=>{
-    alert("❌ Submission Error. Please try again.");
+    alert("Submission Error. Try again.");
   });
 }
 
