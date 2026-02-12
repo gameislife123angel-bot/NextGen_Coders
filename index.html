@@ -1,97 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>NextGen Coders - Enrollment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Coders - Enrollment</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      line-height: 1.8;
-    }
+<style>
 
-    .content {
-      padding: 50px 10%;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    h1 { font-size: 40px; margin-bottom: 10px; }
-    h2 { margin-top: 40px; color: #38bdf8; }
-    h3 { margin-top: 25px; }
+body{
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+  line-height:1.7;
+}
 
-    hr {
-      margin: 40px 0;
-      border: none;
-      border-top: 1px solid #334155;
-    }
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:60px 25px;
+}
 
-    p { margin: 15px 0; font-size: 17px; }
+h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
 
-    .enroll-btn {
-      margin-top: 40px;
-      padding: 15px 25px;
-      font-size: 16px;
-      background: #2563eb;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-    }
+h2{
+  margin-top:40px;
+  color:#38bdf8;
+  font-size:26px;
+}
 
-    .enroll-btn:hover { background: #1d4ed8; }
+h3{
+  margin-top:10px;
+  font-weight:normal;
+  color:#cbd5e1;
+}
 
-    .form-container {
-      display: none;
-      background: white;
-      color: black;
-      padding: 30px;
-      margin: 50px 10%;
-      border-radius: 12px;
-    }
+p{
+  margin:15px 0;
+  font-size:18px;
+  color:#e2e8f0;
+}
 
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-    }
+hr{
+  margin:35px 0;
+  border:none;
+  border-top:1px solid #334155;
+}
 
-    button {
-      padding: 12px;
-      margin-top: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+ul{
+  margin-top:15px;
+  padding-left:20px;
+}
 
-    button:hover { background: #1d4ed8; }
+li{
+  margin:8px 0;
+  font-size:17px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #020617;
-      color: #94a3b8;
-      margin-top: 60px;
-    }
+.enroll-btn{
+  margin-top:40px;
+  padding:15px 30px;
+  font-size:17px;
+  background:#2563eb;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    @media(max-width:768px){
-      .content { padding: 30px 20px; }
-      .form-container { margin: 30px 20px; }
-    }
-  </style>
+.enroll-btn:hover{
+  background:#1d4ed8;
+  transform:translateY(-2px);
+}
+
+.form-container{
+  display:none;
+  max-width:700px;
+  margin:40px auto;
+  background:white;
+  color:black;
+  padding:35px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  animation:fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+input, select{
+  width:100%;
+  padding:13px;
+  margin:12px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+button{
+  padding:13px;
+  margin-top:12px;
+  width:100%;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+.secondary-btn{
+  background:#64748b;
+}
+
+.secondary-btn:hover{
+  background:#475569;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#94a3b8;
+  margin-top:60px;
+  font-size:14px;
+}
+
+@media(max-width:600px){
+  h1{font-size:30px;}
+  h2{font-size:22px;}
+  p{font-size:16px;}
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="content">
+<div class="container">
 
 <h1>🚀 NEXTGEN CODERS</h1>
 <h3><i>Coding the Next Generation</i></h3>
@@ -101,20 +163,20 @@
 <hr>
 
 <h2>📘 1 Month Foundation Course</h2>
-<h3>💰 Enrollment Fee: Only ₹99</h3>
+<p><strong>💰 Enrollment Fee: Only ₹99</strong></p>
 
-<p>
-✔ Create Simple Website UI<br>
-✔ Design Clean GUI Layouts<br>
-✔ Backend Logic Basics<br>
-✔ Interactive Web Pages<br>
-✔ Clean Structured Code
-</p>
+<ul>
+<li>Create Simple Website UI</li>
+<li>Design Clean GUI Layouts</li>
+<li>Backend Logic Basics</li>
+<li>Interactive Web Pages</li>
+<li>Clean Structured Code</li>
+</ul>
 
 <hr>
 
 <h2>🎓 Scholarship</h2>
-<p><b>Up to 90% Scholarship</b> for EliteStudio Main Courses</p>
+<p><strong>Up to 90% Scholarship</strong> for EliteStudio Main Courses.</p>
 
 <hr>
 
@@ -124,13 +186,13 @@
 
 <div class="form-container" id="formContainer">
 
-<h2>Enrollment Form</h2>
+<h2 style="color:#2563eb;">Enrollment Form</h2>
 
-<input type="text" id="name" placeholder="Full Name">
-<input type="tel" id="phone" placeholder="Phone Number">
-<input type="email" id="email" placeholder="Email Address">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="email" id="email" placeholder="Email Address" required>
 
-<select id="education" onchange="checkEducation()">
+<select id="education" onchange="checkEducation()" required>
 <option value="">Select Education</option>
 <option value="Student">Student</option>
 <option value="Engineer">Engineer</option>
@@ -141,8 +203,8 @@
 <input type="text" id="grade" placeholder="Enter Grade / Class">
 </div>
 
-<button onclick="confirmSubmission()">Submit</button>
-<button onclick="goBack()">Back</button>
+<button onclick="confirmSubmission()">Submit Enrollment</button>
+<button class="secondary-btn" onclick="goBack()">Back</button>
 
 </div>
 
@@ -155,78 +217,72 @@ Programmed by Haiyansh Shah
 
 const scriptURL = "https://script.google.com/macros/s/AKfycby1h2MiiSLsKZbEiXPjLD8lFDJkqjYGoyfTTKys-m_zR3NZv0db52dreBK4bqbmWw3XFA/exec";
 
-function showForm() {
-  if(localStorage.getItem("submitted")) {
+function showForm(){
+  if(localStorage.getItem("submitted")){
     alert("You have already submitted from this device.");
     return;
   }
-  document.getElementById("formContainer").style.display = "block";
-  window.scrollTo(0, document.body.scrollHeight);
+  document.getElementById("formContainer").style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 }
 
-function goBack() {
-  document.getElementById("formContainer").style.display = "none";
+function goBack(){
+  document.getElementById("formContainer").style.display="none";
 }
 
-function checkEducation() {
-  let edu = document.getElementById("education").value;
-  document.getElementById("gradeField").style.display =
-    edu === "Student" ? "block" : "none";
+function checkEducation(){
+  const edu=document.getElementById("education").value;
+  document.getElementById("gradeField").style.display=
+  edu==="Student"?"block":"none";
 }
 
-function confirmSubmission() {
+function confirmSubmission(){
 
-  if(localStorage.getItem("submitted")) {
+  if(localStorage.getItem("submitted")){
     alert("Only one submission allowed per device.");
     return;
   }
 
-  const nameVal = document.getElementById("name").value.trim();
-  const phoneVal = document.getElementById("phone").value.trim();
-  const emailVal = document.getElementById("email").value.trim();
-  const educationVal = document.getElementById("education").value;
-  const gradeInput = document.getElementById("grade");
-  const gradeVal = gradeInput ? gradeInput.value.trim() : "";
+  const nameVal=document.getElementById("name").value.trim();
+  const phoneVal=document.getElementById("phone").value.trim();
+  const emailVal=document.getElementById("email").value.trim();
+  const educationVal=document.getElementById("education").value;
+  const gradeVal=document.getElementById("grade").value.trim();
 
-  if(!nameVal || !phoneVal || !emailVal || !educationVal) {
+  if(!nameVal || !phoneVal || !emailVal || !educationVal){
     alert("❌ Please fill all required fields.");
     return;
   }
 
-  if(educationVal === "Student" && !gradeVal) {
+  if(educationVal==="Student" && !gradeVal){
     alert("❌ Please enter your Grade / Class.");
     return;
   }
 
-  if(!confirm("Are you sure you want to enroll? ₹99 fee will be charged.")) {
+  if(!confirm("Are you sure you want to enroll? ₹99 fee will be charged.")){
     return;
   }
 
-  const data = {
-    name: nameVal,
-    phone: phoneVal,
-    email: emailVal,
-    education: educationVal,
-    grade: educationVal === "Student" ? gradeVal : "-"
+  const data={
+    name:nameVal,
+    phone:phoneVal,
+    email:emailVal,
+    education:educationVal,
+    grade:educationVal==="Student"?gradeVal:"-"
   };
 
-  fetch(scriptURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+  fetch(scriptURL,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(data)
   })
-  .then(res => res.text())
-  .then(() => {
-
-    // Success sound
-    const audio = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
-    audio.play();
-
+  .then(res=>res.text())
+  .then(()=>{
     alert("✅ Enrollment Successful!");
-    localStorage.setItem("submitted", "true");
+    localStorage.setItem("submitted","true");
     goBack();
   })
-  .catch(() => {
+  .catch(()=>{
     alert("❌ Submission Error. Please try again.");
   });
 }
